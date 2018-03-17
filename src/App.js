@@ -16,11 +16,26 @@ class App extends Component {
 			uniqueId: 1,
 		};
 	}
+	addTodo(title) {
+		const {
+			tasks,
+			uniqueId,
+		} = this.state;
+
+		tasks.push({
+			title,
+			id: uniqueId,
+		});
+		this.setState({
+			tasks,
+			uniqueId: uniqueId + 1,
+		});
+	}
 	render() {
 		return (
-			<div>
+			<div className="App">
 				<h1>TODO App</h1>
-				<TodoInput/>
+				<TodoInput addTodo={this.addTodo} />
 				<TodoList tasks={this.state.tasks}/>
 			</div>
 
