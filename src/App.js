@@ -17,6 +17,7 @@ class App extends Component {
 		};
 		// 常にAppインスタンスのstatueを参照させる
 		this.addTodo = this.addTodo.bind(this);
+		this.resetTodo = this.resetTodo.bind(this);
 	}
 	addTodo(title) {
 		const {
@@ -33,10 +34,16 @@ class App extends Component {
 			uniqueId: uniqueId + 1,
 		});
 	}
+	resetTodo() {
+		this.setState({
+			tasks: [],
+		});
+	}
 	render() {
 		return (
 			<div className="App">
 				<h1>TODO App</h1>
+				<button onClick={this.resetTodo}>リセット</button>
 				<TodoInput addTodo={this.addTodo} />
 				<TodoList tasks={this.state.tasks}/>
 			</div>

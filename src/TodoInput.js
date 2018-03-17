@@ -14,7 +14,7 @@ class TodoInput extends Component {
 			inputValue: e.target.value,
 		});
 	};
-	handleClick(e) {
+	handleClick() {
 		const inputValue = this.state.inputValue;
 		this.props.addTodo(inputValue);
 	}
