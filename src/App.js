@@ -15,6 +15,8 @@ class App extends Component {
 			],
 			uniqueId: 1,
 		};
+		// 常にAppインスタンスのstatueを参照させる
+		this.addTodo = this.addTodo.bind(this);
 	}
 	addTodo(title) {
 		const {
